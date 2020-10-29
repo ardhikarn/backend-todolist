@@ -1,6 +1,7 @@
 import express, {Request, Response} from 'express'
 import mongoose, { mongo } from 'mongoose'
 import cors from 'cors'
+import routes from './routes/route_todo'
 
 const app = express()
 const PORT = 8080
@@ -20,9 +21,7 @@ const option = {
 
 app.use(cors())
 
-app.get('/', (req: Request, res: Response) => {
-  res.send('You are Connected')
-})
+app.use(routes)
 
 // mongoose connect
 mongoose.set('useFindAndModify', true)
